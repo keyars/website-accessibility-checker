@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AccessiCheck — Free Website Accessibility Checker</title>
+  <meta name="description" content="Run a fast, privacy-friendly accessibility audit on a web page or HTML snippet. Check headings, images, links, forms, landmarks, contrast hints, and semantic structure.">
+  <meta name="keywords" content="website accessibility checker, WCAG checker, accessibility audit, web accessibility testing, HTML accessibility checker, a11y checker">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <link rel="canonical" href="https://keyars.github.io/website-accessibility-checker/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="AccessiCheck — Free Website Accessibility Checker">
+  <meta property="og:description" content="Find common accessibility issues and get a clear, actionable audit report.">
+  <meta property="og:url" content="https://keyars.github.io/website-accessibility-checker/">
+  <meta name="twitter:card" content="summary">
+  <meta name="theme-color" content="#0b1220">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="./" aria-label="AccessiCheck home"><span class="brand-mark">✓</span><span>AccessiCheck</span></a>
+    <a class="github" href="https://github.com/keyars/website-accessibility-checker" target="_blank" rel="noopener">View on GitHub ↗</a>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="eyebrow">ACCESSIBILITY AUDITOR</div>
+      <h1>Make your website easier for <span>everyone</span> to use.</h1>
+      <p class="hero-copy">Run a focused accessibility review for common HTML and WCAG-related issues. Get a readable score, prioritized findings, and practical fixes without uploading your content to a server.</p>
+
+      <div class="audit-card">
+        <div class="tabs" role="tablist" aria-label="Audit input type">
+          <button class="tab active" data-mode="url" role="tab" aria-selected="true">Website URL</button>
+          <button class="tab" data-mode="html" role="tab" aria-selected="false">Paste HTML</button>
+        </div>
+        <form id="auditForm">
+          <div id="urlPanel" class="input-panel">
+            <label for="urlInput">Page URL</label>
+            <div class="input-row"><input id="urlInput" type="url" placeholder="https://example.com" autocomplete="url"><button type="submit" class="primary">Check page</button></div>
+            <p class="hint">URL audits require the target site to allow browser access (CORS). For any page, paste its HTML instead.</p>
+          </div>
+          <div id="htmlPanel" class="input-panel hidden">
+            <label for="htmlInput">HTML to audit</label>
+            <textarea id="htmlInput" rows="8" placeholder="Paste the page HTML here…"></textarea>
+            <button type="submit" class="primary full">Analyze HTML</button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <section id="results" class="results hidden" aria-live="polite">
+      <div class="score-card">
+        <div class="score-ring"><strong id="score">—</strong><span>/100</span></div>
+        <div><div class="eyebrow">ACCESSIBILITY HEALTH</div><h2 id="resultTitle">Audit complete</h2><p id="resultSummary"></p></div>
+        <button id="copyReport" class="secondary">Copy report</button>
+      </div>
+      <div class="stat-grid" id="stats"></div>
+      <div class="findings-head"><div><div class="eyebrow">ACTION PLAN</div><h2>Findings</h2></div><div id="filterButtons" class="filters"></div></div>
+      <div id="findings" class="findings"></div>
+    </section>
+
+    <section class="why">
+      <div><div class="eyebrow">WHY ACCESSICHECK</div><h2>Simple enough for a quick review. Useful enough for a real workflow.</h2></div>
+      <div class="feature-grid">
+        <article><b>Privacy-first</b><p>HTML analysis runs in your browser. No account and no upload is required.</p></article>
+        <article><b>Actionable findings</b><p>Issues are grouped by severity with plain-language explanations and suggested fixes.</p></article>
+        <article><b>Developer friendly</b><p>Use it during development, QA, accessibility reviews, and pre-release checks.</p></article>
+      </div>
+    </section>
+
+    <section class="faq">
+      <div class="eyebrow">ACCESSIBILITY FAQ</div><h2>Common questions</h2>
+      <details><summary>What does this accessibility checker test?</summary><p>It checks practical HTML signals including document language, page title, heading structure, image alternative text, link names, form labels, landmarks, buttons, tables, and basic color-contrast hints.</p></details>
+      <details><summary>Does a score of 100 mean a website is fully accessible?</summary><p>No. Automated checks can identify many common problems but cannot replace manual keyboard testing, screen-reader testing, usability testing, or a complete WCAG conformance assessment.</p></details>
+      <details><summary>Can I audit any public website URL?</summary><p>Only when the target page permits browser access. Cross-origin security rules can prevent a browser-only tool from reading arbitrary pages. Pasting the HTML is the reliable alternative.</p></details>
+    </section>
+  </main>
+
+  <footer><span>AccessiCheck · Open source accessibility utility</span><span>Built for practical web quality reviews.</span></footer>
+  <script src="app.js"></script>
+</body>
+</html>
